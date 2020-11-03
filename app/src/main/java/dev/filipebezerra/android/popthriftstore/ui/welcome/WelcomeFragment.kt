@@ -44,7 +44,7 @@ class WelcomeFragment : Fragment() {
         welcomeViewModel.navigateToInstruction.observe(viewLifecycleOwner) {
             it?.let {
                 navController.navigate(toInstruction())
-                welcomeViewModel.onInstructionNavigated()
+                welcomeViewModel.doneNavigationToInstructions()
             }
         }
     }

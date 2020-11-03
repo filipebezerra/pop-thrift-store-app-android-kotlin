@@ -2,22 +2,25 @@ package dev.filipebezerra.android.popthriftstore
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.NavDestination
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import dev.filipebezerra.android.popthriftstore.databinding.MainActivityBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private val navController by lazy { findNavController(R.id.nav_host_fragment) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        DataBindingUtil.setContentView<MainActivityBinding>(
+            this,
+            R.layout.main_activity
+        ).apply {
+            setSupportActionBar(this.toolbar)
+        }
 
-        findNavController(R.id.nav_host_fragment)
-            .addOnDestinationChangedListener { _, destination, _ ->
-                supportActionBar?.title = destination.label
-            }
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            supportActionBar?.title = destination.label
+        }
     }
 }

@@ -14,7 +14,7 @@ class WelcomeViewModel : ViewModel() {
         _navigateToInstruction.value = true
     }
 
-    fun onInstructionNavigated() {
+    fun doneNavigationToInstructions() {
         _navigateToInstruction.value = null
     }
 }

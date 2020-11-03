@@ -2,7 +2,7 @@
     <string name="app_name">Pop Thrift store</string>
     <string name="login_title">Login</string>
     <string name="welcome_title">Welcome</string>
-    <string name="instruction_title">Instruction</string>
+    <string name="instruction_title">Instructions</string>
     <string name="shoe_detail_title">Shoe detail</string>
     <string name="shoe_list_title">Shoes</string>
     <string name="email_label">Email</string>
@@ -10,6 +10,7 @@
     <string name="password_content_description">Fill with your password</string>
     <string name="password_label">Password</string>
     <string name="fab_login_content_description">Make your login</string>
+    <string name="fab_main_content_description">Go to detail screen</string>
     <string name="dont_have_account">Don\'t have a account?</string>
     <string name="create_account">Create now!</string>
     <string name="title_welcome_text">Let\'s start!</string>

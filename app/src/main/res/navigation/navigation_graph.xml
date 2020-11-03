@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/instruction_fragment"
-        android:name="dev.filipebezerra.android.popthriftstore.ui.instruction.InstructionFragment"
+        android:name="dev.filipebezerra.android.popthriftstore.ui.instructions.InstructionsFragment"
         android:label="@string/instruction_title"
         tools:layout="@layout/instruction_fragment"
         >
