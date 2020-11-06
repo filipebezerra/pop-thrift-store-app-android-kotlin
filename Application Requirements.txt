@@ -1,0 +1,7 @@
+Login -> autenticar usuário
+Welcome -> onboarding de boas vindas
+Instructions -> onboarding para ensinar a como usar o app
+Listing -> Lista de produtos a venda
+- os produtos possuem um preço sugerido mas não é um preço fixo
+Detail -> Detalhamento do produto e lance de compra
+- Atualiza o produto da lista com os lances efetuados pelos usuários
