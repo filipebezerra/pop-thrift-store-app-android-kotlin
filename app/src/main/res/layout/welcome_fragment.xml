@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.welcome.WelcomeFragment"
+        tools:context=".ui.welcome.WelcomeScreen"
         >
 
         <ImageView
@@ -27,7 +27,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_shopping_cart"
+            app:srcCompat="@drawable/ic_best_offer"
             />
 
         <TextView
@@ -78,7 +78,7 @@
             android:layout_marginEnd="@dimen/margin_normal"
             android:layout_marginBottom="@dimen/margin_normal"
             android:onClick="@{() -> viewModel.startShopping()}"
-            android:text="@string/start_shopping"
+            android:text="@string/lets_get_started"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />

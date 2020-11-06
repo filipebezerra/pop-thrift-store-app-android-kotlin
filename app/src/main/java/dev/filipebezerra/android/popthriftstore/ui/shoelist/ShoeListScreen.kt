@@ -1,4 +1,4 @@
-package dev.filipebezerra.android.popthriftstore.ui.shoedetail
+package dev.filipebezerra.android.popthriftstore.ui.shoelist
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,24 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import dev.filipebezerra.android.popthriftstore.R
 
-class ShoeDetailFragment : Fragment() {
+class ShoeListScreen : Fragment() {
 
     companion object {
-        fun newInstance() = ShoeDetailFragment()
+        fun newInstance() = ShoeListScreen()
     }
 
-    private lateinit var viewModel: ShoeDetailViewModel
+    private lateinit var viewModel: ShoeListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.shoe_detail_fragment, container, false)
+        return inflater.inflate(R.layout.shoe_list_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ShoeDetailViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

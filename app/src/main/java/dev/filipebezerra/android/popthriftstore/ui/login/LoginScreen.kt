@@ -10,9 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dev.filipebezerra.android.popthriftstore.R
 import dev.filipebezerra.android.popthriftstore.databinding.LoginFragmentBinding
-import dev.filipebezerra.android.popthriftstore.ui.login.LoginFragmentDirections.Companion.actionLoginFragmentToWelcomeFragment as toWelcomeFragment
+import dev.filipebezerra.android.popthriftstore.ui.login.LoginScreenDirections.Companion.actionLoginFragmentToWelcomeFragment as toWelcomeFragment
 
-class LoginFragment : Fragment() {
+class LoginScreen : Fragment() {
 
     private val loginViewModel: LoginViewModel by viewModels()
 

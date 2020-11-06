@@ -44,7 +44,7 @@ dependencies {
     // https://developer.android.com/jetpack/androidx/releases/core
     implementation "androidx.core:core-ktx:$core_ktx_version"
 
-    //
+    // https://github.com/material-components/material-components-android/releases
     implementation "com.google.android.material:material:$material_version"
 
     // https://developer.android.com/jetpack/androidx/releases/constraintlayout
@@ -54,20 +54,23 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    androidTestImplementation "androidx.navigation:navigation-testing:$navigation_version"
 
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
-    // Test helpers for LiveData
-    testImplementation "androidx.arch.core:core-testing:$arch_version"
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    // Test helpers for LiveData
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
+
     // Testing Fragments in Isolation
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$navigation_version"
+
+    androidTestImplementation 'org.hamcrest:hamcrest-library:1.3'
 }

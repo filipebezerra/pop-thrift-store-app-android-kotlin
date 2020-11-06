@@ -10,9 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dev.filipebezerra.android.popthriftstore.R
 import dev.filipebezerra.android.popthriftstore.databinding.WelcomeFragmentBinding
-import dev.filipebezerra.android.popthriftstore.ui.welcome.WelcomeFragmentDirections.Companion.actionWelcomeFragmentToInstructionFragment as toInstruction
+import dev.filipebezerra.android.popthriftstore.ui.welcome.WelcomeScreenDirections.Companion.actionWelcomeFragmentToInstructionFragment as toInstruction
 
-class WelcomeFragment : Fragment() {
+class WelcomeScreen : Fragment() {
 
     private val welcomeViewModel: WelcomeViewModel by viewModels()
 

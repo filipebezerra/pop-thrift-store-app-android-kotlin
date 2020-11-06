@@ -19,5 +19,19 @@
         \nContinuing you are agreeing to the terms of use and privacy policy
     </string>
     <string name="welcome_image_content_description">Welcome</string>
-    <string name="start_shopping">Start shopping</string>
+    <string name="lets_get_started">Let\'s get started</string>
+    <string name="title_all_you_can_find_instruction">All you can find</string>
+    <string name="title_save_money_instruction">Save money</string>
+    <string name="title_full_shopping_cart_instruction">Full your shopping cart</string>
+    <string name="content_all_you_can_find_instruction">
+        With an endless options to buy the best matching regarding your needs.
+    </string>
+    <string name="content_save_money_instruction">
+        You tell your price and negotiate for the best price ever found.
+    </string>
+    <string name="content_full_shopping_cart_instruction">
+        Here you can buy as much as you can or wish, it all depends on the size of your wardrobe.
+    </string>
+    <string name="skip_instruction">Skip</string>
+    <string name="next_instruction">Next</string>
 </resources>
