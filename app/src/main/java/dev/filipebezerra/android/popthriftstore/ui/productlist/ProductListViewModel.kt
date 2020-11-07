@@ -58,8 +58,8 @@ class ProductListViewModel : ViewModel() {
                 name = "Blusa off white listrado",
                 sellerName = "Tia Li",
                 imageUrl = "https://photos.enjoei.com.br/mocas-roupas-vestidos-sempre-magnifica-blusa-off-white-listrado/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy81OTAzMjM2LzU1NmMxMjEzMmY3MzQxMzNkNzBkM2FkMGFmZjRiMjkyLmpwZw",
-                price = 59.00,
-                discountedPrice = 70.00,
+                price = 70.00,
+                discountedPrice = 59.00,
                 rating = 5F
             ),
             Product(
@@ -85,8 +85,8 @@ class ProductListViewModel : ViewModel() {
                 name = "Vestido verde escuro vazado Suely Cencini",
                 sellerName = "Pâmela",
                 imageUrl = "https://photos.enjoei.com.br/mocas-roupas-vestidos-suely-cencini-vestido-verde-escuro-vazado-suely-cencini/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy84MjU4MDU2L2M5YTE1MGEwNDA2ZTU1ZDFhYTc5NzAzZTRiMjY1YTZlLmpwZw",
-                price = 138.00,
-                discountedPrice = 276.00,
+                price = 276.00,
+                discountedPrice = 138.00,
                 rating = 5F
             ),
             Product(
@@ -139,8 +139,8 @@ class ProductListViewModel : ViewModel() {
                 name = "Salto grosso preto Paula Villalonge",
                 sellerName = "Paulo",
                 imageUrl = "https://photos.enjoei.com.br/mocas-roupas-casaquinhos-gritt-blazer-curto-bege/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy81MjA3OTk1L2ZiZmVmZmZkMWZkMThiYWI5MTNkYWQ5MjhkZGVjMzYxLmpwZw",
-                price = 43.00,
-                discountedPrice = 75.00,
+                price = 75.00,
+                discountedPrice = 43.00,
                 rating = 4.5F
             ),
             Product(
@@ -148,8 +148,8 @@ class ProductListViewModel : ViewModel() {
                 name = "Panela de foundue - le creuset",
                 sellerName = "Maria",
                 imageUrl = "https://photos.enjoei.com.br/casa-cozinha-le-creuset-panela-de-foundue-le-creuset/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy8zNTcxNDcvMDQ1ZDNjODlkNTRkNDgxMWNmMjRmZThiN2Y4ZDBmMmIuanBn",
-                price = 800.00,
-                discountedPrice = 900.00,
+                price = 900.00,
+                discountedPrice = 800.00,
                 rating = 4F
             ),
             Product(
@@ -157,8 +157,8 @@ class ProductListViewModel : ViewModel() {
                 name = "Panelas mãe ágata original",
                 sellerName = "Eliel",
                 imageUrl = "https://photos.enjoei.com.br/casa-cozinha-mae-agata-panelas-mae-agata-original/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy82Nzg5OTc2LzIxOWM1ZDkwYjVhMjJjZTdkNzI0ZmNjOGE1ZjA0NzA4LmpwZw",
-                price = 400.00,
-                discountedPrice = 1499.00,
+                price = 1499.00,
+                discountedPrice = 400.00,
                 rating = 4F
             ),
             Product(
@@ -184,8 +184,8 @@ class ProductListViewModel : ViewModel() {
                 name = "Cinto jeans",
                 sellerName = "Julia",
                 imageUrl = "https://photos.enjoei.com.br/mocas-acessorios-cintos-cinto-jeans/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy8xMDY1NTY1My9jZGM3Y2U4NTRlY2Y0ZmM5N2I2Y2Q0NmUyMjM3YzVjNS5qcGc",
-                price = 12.00,
-                discountedPrice = 20.00,
+                price = 20.00,
+                discountedPrice = 12.00,
                 rating = 5F
             ),
             Product(

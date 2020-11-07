@@ -36,5 +36,6 @@
     <string name="next_instruction">Next</string>
     <string name="product_card_content_description">Card do produto</string>
     <string name="product_image_content_description">Imagem do produto</string>
-    <string name="pricing_format">$%1$.0f $%2$.0f</string>
+    <string name="pricing_format">$%.0f</string>
+    <string name="discounted_pricing_format">$%1$.0f $%2$.0f</string>
 </resources>

@@ -17,10 +17,18 @@ import dev.filipebezerra.android.popthriftstore.data.Product
 
 @BindingAdapter("pricing")
 fun bindPricing(textView: TextView, product: Product) {
+    if (product.discountedPrice == null) {
+        textView.text =  textView.context.getString(
+            R.string.pricing_format,
+            product.price,
+        )
+        return
+    }
+
     val pricingFormat = textView.context.getString(
-        R.string.pricing_format,
+        R.string.discounted_pricing_format,
+        product.price,
         product.discountedPrice,
-        product.price
     )
     val lengthIndex = pricingFormat.length
     val whitespaceIndex = pricingFormat.indexOf(" ")
