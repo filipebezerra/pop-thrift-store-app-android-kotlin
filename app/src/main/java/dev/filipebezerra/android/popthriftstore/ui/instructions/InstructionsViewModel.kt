@@ -46,7 +46,7 @@ class InstructionsViewModel : ViewModel() {
     fun skip() = finishInstructions()
 
     fun next() {
-        if (currentInstructionPosition.value == instructionItems.value?.size) {
+        if (currentInstructionPosition.value == instructionItems.value?.size?.minus(1)) {
             finishInstructions()
             return
         }
