@@ -6,7 +6,6 @@
     >
 
     <data>
-
         <variable
             name="product"
             type="dev.filipebezerra.android.popthriftstore.data.Product"
@@ -36,6 +35,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:cardUseCompatPadding="true"
+            tools:cardUseCompatPadding="false"
             >
 
             <FrameLayout
@@ -69,7 +69,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/product_spacing"
-                        android:background="@color/product_tag_background"
+                        android:background="@color/product_labels_background"
                         android:padding="@dimen/product_spacing"
                         android:textAppearance="?attr/textAppearanceCaption"
                         android:textColor="?attr/colorPrimary"
@@ -79,7 +79,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:pricing="@{product}"
-                        tools:text="R$ 72 R$ 135"
+                        tools:text="R$72 R$135"
                         />
 
                     <FrameLayout
@@ -87,7 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/product_spacing"
-                        android:background="@color/product_tag_background"
+                        android:background="@color/product_labels_background"
                         android:padding="@dimen/product_spacing"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -102,8 +102,9 @@
                             android:isIndicator="true"
                             android:numStars="5"
                             android:rating="@{product.rating}"
+                            android:progressBackgroundTint="@color/product_rating_background"
                             android:stepSize="0.5"
-                            tools:rating="5"
+                            tools:rating="4"
                             />
                     </FrameLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
