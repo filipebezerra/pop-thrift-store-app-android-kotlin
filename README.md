@@ -66,6 +66,7 @@ Through this project, developer will:
     <img src="./art/showcase/phone-portrait-showcase-03.png" heigth="640" width="326">
     <img src="./art/showcase/phone-portrait-showcase-04.png" heigth="640" width="326">
     <img src="./art/showcase/phone-portrait-showcase-05.png" heigth="640" width="326">
+    <img src="./art/showcase/phone-portrait-showcase-06.png" heigth="640" width="326">
 </div>
 
 ## Live Running
