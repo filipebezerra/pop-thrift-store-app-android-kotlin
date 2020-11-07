@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/product_list_screen"
+    >
+
+    <data>
+
+        <variable
+            name="product"
+            type="dev.filipebezerra.android.popthriftstore.data.Product"
+            />
+
+        <variable
+            name="viewModel"
+            type="dev.filipebezerra.android.popthriftstore.ui.productlist.ProductListViewModel"
+            />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.showProductDetail(product.id)}"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/product_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:contentDescription="@string/product_card_content_description"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardUseCompatPadding="true"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/product_image_height"
+                    android:contentDescription="@string/product_image_content_description"
+                    android:scaleType="centerCrop"
+                    app:image="@{product}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:padding="@dimen/smallest_spacing"
+                    >
+
+                    <TextView
+                        android:id="@+id/product_pricing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/product_spacing"
+                        android:background="@color/product_tag_background"
+                        android:padding="@dimen/product_spacing"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="?attr/colorPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/product_rating"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:pricing="@{product}"
+                        tools:text="R$ 72 R$ 135"
+                        />
+
+                    <FrameLayout
+                        android:id="@+id/product_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/product_spacing"
+                        android:background="@color/product_tag_background"
+                        android:padding="@dimen/product_spacing"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/product_pricing"
+                        app:layout_constraintTop_toTopOf="parent"
+                        >
+
+                        <RatingBar
+                            style="@style/Widget.AppCompat.RatingBar.Small"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:isIndicator="true"
+                            android:numStars="5"
+                            android:rating="@{product.rating}"
+                            android:stepSize="0.5"
+                            tools:rating="5"
+                            />
+                    </FrameLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+</layout>

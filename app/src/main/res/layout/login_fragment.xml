@@ -15,7 +15,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/margin_normal"
+        android:padding="@dimen/normal_spacing"
         tools:context=".ui.login.LoginScreen"
         >
 
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:contentPadding="@dimen/margin_normal"
+            app:contentPadding="@dimen/normal_spacing"
             >
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -58,7 +58,7 @@
                     android:id="@+id/password_input_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/normal_spacing"
                     android:hint="@string/password_label"
                     app:endIconMode="password_toggle"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:padding="@dimen/margin_small"
+                    android:padding="@dimen/small_spacing"
                     android:text="@string/dont_have_account"
                     app:layout_constraintBaseline_toBaselineOf="@+id/create_account_button"
                     app:layout_constraintEnd_toStartOf="@+id/create_account_button"
@@ -95,7 +95,7 @@
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/normal_spacing"
                     android:text="@string/create_account"
                     android:onClick="@{() -> viewModel.createAccount()}"
                     app:layout_constraintEnd_toEndOf="parent"

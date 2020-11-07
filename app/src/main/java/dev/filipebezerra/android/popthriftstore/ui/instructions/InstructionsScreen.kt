@@ -6,14 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import dev.filipebezerra.android.popthriftstore.databinding.InstructionsFragmentBinding
 import dev.filipebezerra.android.popthriftstore.ui.util.DepthPageTransformer
 import dev.filipebezerra.android.popthriftstore.util.event.EventObserver
+import dev.filipebezerra.android.popthriftstore.ui.instructions.InstructionsScreenDirections.Companion.actionInstructionScreenToShoeListScreen as toShoeListScreen
 
 class InstructionsScreen : Fragment() {
 
     private val instructionsViewModel: InstructionsViewModel by viewModels()
+
+    private val navController by lazy { findNavController() }
 
     private lateinit var instructionFragmentBinding: InstructionsFragmentBinding
 
@@ -70,7 +74,7 @@ class InstructionsScreen : Fragment() {
             instructionFragmentBinding.viewPager.setCurrentItem(currentPosition, true)
         }
         instructionsViewModel.navigateToHome.observe(viewLifecycleOwner, EventObserver {
-
+            navController.navigate(toShoeListScreen())
         })
     }
 }

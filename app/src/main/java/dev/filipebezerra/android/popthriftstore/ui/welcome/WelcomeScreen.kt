@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dev.filipebezerra.android.popthriftstore.R
 import dev.filipebezerra.android.popthriftstore.databinding.WelcomeFragmentBinding
-import dev.filipebezerra.android.popthriftstore.ui.welcome.WelcomeScreenDirections.Companion.actionWelcomeFragmentToInstructionFragment as toInstruction
+import dev.filipebezerra.android.popthriftstore.ui.welcome.WelcomeScreenDirections.Companion.actionWelcomeScreenToInstructionScreen as toInstruction
 
 class WelcomeScreen : Fragment() {
 

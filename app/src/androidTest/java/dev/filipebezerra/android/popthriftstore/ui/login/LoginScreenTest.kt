@@ -37,6 +37,6 @@ class LoginScreenTest {
 
         // Verify that performing a click changes the NavController’s state
         onView(withId(R.id.fab)).perform(click())
-        assertThat(navController.currentDestination?.id, `is`(equalTo(R.id.welcome_fragment)))
+        assertThat(navController.currentDestination?.id, `is`(equalTo(R.id.welcome_screen)))
     }
 }

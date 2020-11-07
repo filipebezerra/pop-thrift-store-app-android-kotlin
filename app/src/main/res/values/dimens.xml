@@ -1,7 +1,10 @@
 <resources>
-    <dimen name="fab_margin">@dimen/margin_normal</dimen>
+    <dimen name="fab_margin">@dimen/normal_spacing</dimen>
 
-    <dimen name="margin_small">8dp</dimen>
-    <dimen name="margin_normal">16dp</dimen>
-    <dimen name="margin_large">32dp</dimen>
+    <dimen name="product_spacing">2dp</dimen>
+    <dimen name="smallest_spacing">4dp</dimen>
+    <dimen name="small_spacing">8dp</dimen>
+    <dimen name="normal_spacing">16dp</dimen>
+    <dimen name="large_spacing">32dp</dimen>
+    <dimen name="product_image_height">194dp</dimen>
 </resources>
