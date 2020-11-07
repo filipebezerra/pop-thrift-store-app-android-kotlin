@@ -15,6 +15,8 @@
         <action
             android:id="@+id/action_login_screen_to_welcome_screen"
             app:destination="@id/welcome_screen"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true"
             />
     </fragment>
     <fragment
@@ -26,6 +28,8 @@
         <action
             android:id="@+id/action_welcome_screen_to_instruction_screen"
             app:destination="@id/instruction_screen"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true"
             />
     </fragment>
     <fragment
@@ -37,6 +41,8 @@
         <action
             android:id="@+id/action_instruction_screen_to_shoe_list_screen"
             app:destination="@id/shoe_list_screen"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true"
             />
     </fragment>
     <fragment
