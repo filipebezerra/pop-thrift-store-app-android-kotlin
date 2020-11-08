@@ -62,6 +62,8 @@ fun bindImage(imageView: ImageView, product: Product) {
         .load(product.imageUrl)
         .centerCrop()
         .transition(DrawableTransitionOptions.withCrossFade())
+        .placeholder(R.drawable.ic_outline_insert_photo_24)
+        .error(R.drawable.ic_no_camera)
         .into(imageView)
 }
 
