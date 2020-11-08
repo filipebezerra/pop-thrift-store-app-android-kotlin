@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dev.filipebezerra.android.popthriftstore.databinding.ProductListScreenBinding
+import dev.filipebezerra.android.popthriftstore.ui.productlist.ProductListViewModel.Companion.provideFactory
+import dev.filipebezerra.android.popthriftstore.util.event.EventObserver
+import dev.filipebezerra.android.popthriftstore.ui.productlist.ProductListScreenDirections.Companion.actionProductListToProductDetail as toProductDetail
 
 class ProductListScreen : Fragment() {
 
-    private val productListViewModel: ProductListViewModel by viewModels()
+    private val productListViewModel: ProductListViewModel by viewModels { provideFactory() }
 
     private val navController by lazy { findNavController() }
 
@@ -33,6 +36,7 @@ class ProductListScreen : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewBinding.lifecycleOwner = viewLifecycleOwner
         setupProductAdapter()
+        observeUi()
     }
 
     private fun setupProductAdapter() {
@@ -40,5 +44,12 @@ class ProductListScreen : Fragment() {
             productAdapter = this
             viewBinding.productList.adapter = productAdapter
         }
+    }
+
+    private fun observeUi() {
+        productListViewModel.navigateToProductDetail.observe(viewLifecycleOwner,
+            EventObserver { productId ->
+                navController.navigate(toProductDetail(productId))
+            })
     }
 }

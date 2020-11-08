@@ -38,4 +38,10 @@
     <string name="product_image_content_description">Imagem do produto</string>
     <string name="pricing_format">$%.0f</string>
     <string name="discounted_pricing_format">$%1$.0f $%2$.0f</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="add_to_wish_list">Add to wish list</string>
+    <string name="added_to_cart">Amazing! This product was added to cart</string>
+    <string name="added_to_wish_list">
+        Everything done! We\'ll keep you posted about any updates.
+    </string>
 </resources>

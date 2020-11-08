@@ -40,26 +40,31 @@
         >
         <action
             android:id="@+id/action_instruction_screen_to_shoe_list_screen"
-            app:destination="@id/shoe_list_screen"
+            app:destination="@id/product_list_screen"
             app:popUpTo="@id/navigation_graph"
             app:popUpToInclusive="true"
             />
     </fragment>
     <fragment
-        android:id="@+id/shoe_detail_screen"
+        android:id="@+id/product_detail_screen"
         android:name="dev.filipebezerra.android.popthriftstore.ui.productdetail.ProductDetailScreen"
         android:label="@string/product_detail_title"
         tools:layout="@layout/product_detail_screen"
-        />
+        >
+        <argument
+            android:name="productId"
+            app:argType="long"
+            />
+    </fragment>
     <fragment
-        android:id="@+id/shoe_list_screen"
+        android:id="@+id/product_list_screen"
         android:name="dev.filipebezerra.android.popthriftstore.ui.productlist.ProductListScreen"
         android:label="@string/product_list_title"
         tools:layout="@layout/product_list_screen"
         >
         <action
-            android:id="@+id/action_shoe_list_screen_to_shoe_detail_screen"
-            app:destination="@id/shoe_detail_screen"
+            android:id="@+id/action_product_list_to_product_detail"
+            app:destination="@id/product_detail_screen"
             />
     </fragment>
 </navigation>

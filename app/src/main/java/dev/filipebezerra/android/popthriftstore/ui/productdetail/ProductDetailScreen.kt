@@ -6,25 +6,33 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import dev.filipebezerra.android.popthriftstore.databinding.ProductListScreenBinding
+import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
+import dev.filipebezerra.android.popthriftstore.databinding.ProductDetailScreenBinding
+import dev.filipebezerra.android.popthriftstore.ui.productdetail.ProductDetailViewModel.Companion.provideFactory
+import dev.filipebezerra.android.popthriftstore.ui.util.setupSnackbar
 
 class ProductDetailScreen : Fragment() {
 
+    private val args: ProductDetailScreenArgs by navArgs()
 
-    private val viewModel: ProductDetailViewModel by viewModels()
+    private val productDetailViewModel: ProductDetailViewModel by viewModels { provideFactory(args.productId) }
 
-    private val navController by lazy { findNavController() }
-
-    private lateinit var viewBinding: ProductListScreenBinding
+    private lateinit var viewBinding: ProductDetailScreenBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = ProductListScreenBinding.inflate(inflater)
+    ): View? = ProductDetailScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
-            lifecycleOwner = viewLifecycleOwner
+            viewModel = productDetailViewModel
         }
         .root
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewBinding.lifecycleOwner = viewLifecycleOwner
+        view?.setupSnackbar(viewLifecycleOwner, productDetailViewModel.messaging, Snackbar.LENGTH_SHORT)
+    }
 }

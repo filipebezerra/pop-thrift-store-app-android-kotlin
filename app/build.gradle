@@ -66,6 +66,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 
+    // https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
+
+    // https://github.com/bumptech/glide
     kapt "com.github.bumptech.glide:compiler:$glide_version"
     implementation "com.github.bumptech.glide:glide:$glide_version"
 
