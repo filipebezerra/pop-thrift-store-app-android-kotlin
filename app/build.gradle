@@ -75,15 +75,14 @@ dependencies {
 
     // Common Testing libraries
     testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrest_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 
     // Test helpers for LiveData
-    testImplementation "androidx.arch.core:core-testing:$arch_version"
+    testImplementation "androidx.arch.core:core-testing:$core_testing_version"
 
     // Testing Fragments in Isolation
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
     androidTestImplementation "androidx.navigation:navigation-testing:$navigation_version"
-
-    androidTestImplementation "org.hamcrest:hamcrest-library:$hamcrest_version"
 }
