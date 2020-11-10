@@ -24,8 +24,6 @@ class LoginScreen : Fragment() {
 
     private lateinit var viewBinding: LoginFragmentBinding
 
-    private val fab by lazy { requireActivity().findViewById<FloatingActionButton>(R.id.fab) }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,12 +37,6 @@ class LoginScreen : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        fab.apply {
-            visibility = View.VISIBLE
-            contentDescription = getString(R.string.fab_login_content_description)
-            setImageResource(R.drawable.ic_login_24dp)
-            setOnClickListener { loginViewModel.loginMe() }
-        }
         observerUi()
         setupSnackbar()
     }
@@ -65,6 +57,6 @@ class LoginScreen : Fragment() {
         viewLifecycleOwner,
         loginViewModel.messaging,
         LENGTH_LONG,
-        fab,
+        viewBinding.fab,
     )
 }
