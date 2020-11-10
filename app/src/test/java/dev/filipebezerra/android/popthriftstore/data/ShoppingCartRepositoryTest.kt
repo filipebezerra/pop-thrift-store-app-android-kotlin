@@ -60,9 +60,7 @@ class ShoppingCartRepositoryTest {
     }
 
     @After
-    fun tearDown() {
-        shoppingCartRepository.endSession()
-    }
+    fun tearDown() {}
 
     @Test(expected = IllegalStateException::class)
     fun given_no_logged_in_user_when_add_to_cart_then_throw_exception() {
@@ -111,7 +109,7 @@ class ShoppingCartRepositoryTest {
         }
     }
 
-    @Test(expected = IllegalArgumentException::class)
+    @Test(expected = IllegalStateException::class)
     fun given_products_that_im_buying_when_add_twice_to_cart_then_throw_exception() {
         userRepository.signInUser("Filipe Bezerra", "filipebzerra@gmail.com")
         shoppingCartRepository.apply {

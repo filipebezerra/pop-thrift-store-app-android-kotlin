@@ -1,5 +1,7 @@
 package dev.filipebezerra.android.popthriftstore.data
 
+import dev.filipebezerra.android.popthriftstore.util.Preconditions
+
 class ShoppingCartRepository(
     private val userRepository: UserRepository
 ) {
@@ -24,19 +26,20 @@ class ShoppingCartRepository(
         getCart(userRepository)
             .takeUnless { it.products.contains(product) }
             .apply {
-                if (this == null)
-                    throw IllegalArgumentException("Product is already in cart")
-                this.products.add(product)
+                Preconditions.checkState(this != null, "Product is already in cart")
+                this!!.products.add(product)
             }
     }
 
     fun getCart(): ShoppingCart = getCart(userRepository)
 
     fun endSession() {
-        getCart(userRepository).apply {
-            user = null
-            products.clear()
-            userRepository.signOutUser()
+        userRepository.getCurrentUser()?.let {
+            getCart(userRepository).apply {
+                user = null
+                products.clear()
+                userRepository.signOutUser()
+            }
         }
     }
 }
