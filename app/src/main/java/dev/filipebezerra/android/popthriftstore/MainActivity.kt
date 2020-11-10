@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
         setupNavController()
-        setupToolbarNavigation()
+        setupActionBarNavigation()
         observeUi()
     }
 
@@ -59,22 +59,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupToolbarNavigation() {
+    private fun setupActionBarNavigation() {
         viewBinding.toolbar.setNavigationOnClickListener {
-            when (navController.currentDestination?.id) {
-                R.id.login_screen,
-                R.id.welcome_screen,
-                R.id.instruction_screen -> {
-                    finish()
-                }
-                else -> onSupportNavigateUp()
-            }
+            viewModel.onActionBarNavigation(navController.currentDestination)
         }
     }
 
     private fun observeUi() {
         viewModel.finishApplication.observe(this) {
             finish()
+        }
+        viewModel.navigateUp.observe(this) {
+            onSupportNavigateUp()
         }
     }
 
