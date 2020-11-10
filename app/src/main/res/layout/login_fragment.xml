@@ -37,7 +37,7 @@
             android:layout_marginTop="@dimen/large_spacing"
             app:contentPadding="@dimen/normal_spacing"
             app:strokeWidth="1dp"
-            app:strokeColor="@drawable/stroke_color"
+            app:strokeColor="@color/stroke_color"
             app:cardElevation="0dp"
             >
 
