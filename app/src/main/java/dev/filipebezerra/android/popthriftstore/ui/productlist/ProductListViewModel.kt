@@ -4,10 +4,12 @@ import androidx.lifecycle.*
 import dev.filipebezerra.android.popthriftstore.ServiceLocator
 import dev.filipebezerra.android.popthriftstore.data.Product
 import dev.filipebezerra.android.popthriftstore.data.ProductRepository
+import dev.filipebezerra.android.popthriftstore.data.UserRepository
 import dev.filipebezerra.android.popthriftstore.util.event.Event
 import dev.filipebezerra.android.popthriftstore.util.ext.postEvent
 import kotlinx.coroutines.launch
 class ProductListViewModel(
+    userRepository: UserRepository,
     private val productRepository: ProductRepository,
 ) : ViewModel() {
 
@@ -19,14 +21,26 @@ class ProductListViewModel(
     val navigateToProductDetail: LiveData<Event<Long>>
         get() = _navigateToProductDetail
 
+    private val _navigateToLogin = MutableLiveData<Event<Any>>()
+    val navigateToLogin: LiveData<Event<Any>>
+        get() = _navigateToLogin
+
     init {
-        loadProductList()
+        if (userRepository.isUserLoggedIn()) {
+            loadProductList()
+        } else {
+            signInUser()
+        }
     }
 
     private fun loadProductList() {
         viewModelScope.launch {
             _productList.value = productRepository.listProducts()
         }
+    }
+
+    private fun signInUser() {
+        _navigateToLogin.postEvent(true)
     }
 
     fun showProductDetail(productId: Long) {
@@ -38,6 +52,7 @@ class ProductListViewModel(
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
                 ProductListViewModel(
+                    ServiceLocator.provideUserRepository(),
                     ServiceLocator.provideProductRepository(),
                 ) as T
         }

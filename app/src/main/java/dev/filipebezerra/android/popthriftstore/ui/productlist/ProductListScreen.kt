@@ -11,6 +11,7 @@ import dev.filipebezerra.android.popthriftstore.databinding.ProductListScreenBin
 import dev.filipebezerra.android.popthriftstore.ui.productlist.ProductListViewModel.Companion.provideFactory
 import dev.filipebezerra.android.popthriftstore.util.event.EventObserver
 import dev.filipebezerra.android.popthriftstore.ui.productlist.ProductListScreenDirections.Companion.actionProductListToProductDetail as toProductDetail
+import dev.filipebezerra.android.popthriftstore.ui.productlist.ProductListScreenDirections.Companion.actionProductListToLogin as toLogin
 
 class ProductListScreen : Fragment() {
 
@@ -47,6 +48,9 @@ class ProductListScreen : Fragment() {
     }
 
     private fun observeUi() {
+        productListViewModel.navigateToLogin.observe(viewLifecycleOwner, EventObserver {
+            navController.navigate(toLogin())
+        })
         productListViewModel.navigateToProductDetail.observe(viewLifecycleOwner,
             EventObserver { productId ->
                 navController.navigate(toProductDetail(productId))

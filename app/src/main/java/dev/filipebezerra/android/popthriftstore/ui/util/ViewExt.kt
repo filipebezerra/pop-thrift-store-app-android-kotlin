@@ -20,24 +20,31 @@ package dev.filipebezerra.android.popthriftstore.ui.util
  */
 
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
+import com.google.android.material.snackbar.BaseTransientBottomBar.ANIMATION_MODE_FADE
+import com.google.android.material.snackbar.BaseTransientBottomBar.ANIMATION_MODE_SLIDE
 import com.google.android.material.snackbar.Snackbar
+import dev.filipebezerra.android.popthriftstore.R
 import dev.filipebezerra.android.popthriftstore.util.event.Event
 import dev.filipebezerra.android.popthriftstore.util.event.EventObserver
 
 /**
  * Transforms static java function Snackbar.make() to an extension function on View.
  */
-fun View.showSnackbar(snackbarText: String, timeLength: Int) {
-    Snackbar.make(this, snackbarText, timeLength).run {
-        addCallback(object : Snackbar.Callback() {
-            override fun onShown(sb: Snackbar?) {}
-
-            override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {}
-        })
-        show()
-    }
+fun View.showSnackbar(
+    snackbarText: String,
+    timeLength: Int,
+    anchorView: View? = null,
+) {
+    Snackbar.make(this, snackbarText, timeLength)
+        .apply {
+            animationMode = ANIMATION_MODE_SLIDE
+            setAnchorView(anchorView)
+            setBackgroundTint(ContextCompat.getColor(context, R.color.snackbar_background))
+        }
+        .run { show() }
 }
 
 /**
@@ -46,7 +53,8 @@ fun View.showSnackbar(snackbarText: String, timeLength: Int) {
 fun View.setupSnackbar(
     lifecycleOwner: LifecycleOwner,
     snackbarEvent: LiveData<Event<Int>>,
-    timeLength: Int
+    timeLength: Int,
+    anchorView: View? = null,
 ) = snackbarEvent.observe(lifecycleOwner, EventObserver {
-    showSnackbar(context.getString(it), timeLength)
+    showSnackbar(context.getString(it), timeLength, anchorView)
 })

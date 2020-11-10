@@ -44,4 +44,7 @@
     <string name="added_to_wish_list">
         Everything done! We\'ll keep you posted about any updates.
     </string>
+    <string name="email_is_required">Your email is required</string>
+    <string name="password_is_required">Type your password</string>
+    <string name="please_complete_login_form">Complete the login form above, please!</string>
 </resources>

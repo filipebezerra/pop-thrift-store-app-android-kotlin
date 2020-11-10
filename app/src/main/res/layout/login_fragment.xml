@@ -5,26 +5,40 @@
     >
 
     <data>
-
         <variable
             name="viewModel"
             type="dev.filipebezerra.android.popthriftstore.ui.login.LoginViewModel"
             />
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:padding="@dimen/normal_spacing"
         tools:context=".ui.login.LoginScreen"
         >
+
+        <ImageView
+            android:id="@+id/logo_image"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/large_spacing"
+            android:contentDescription="@string/email_content_description"
+            app:srcCompat="@drawable/ic_store_logo"
+            />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/login_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/large_spacing"
             app:contentPadding="@dimen/normal_spacing"
+            app:strokeWidth="1dp"
+            app:strokeColor="@drawable/stroke_color"
+            app:cardElevation="0dp"
             >
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,17 +46,28 @@
                 android:layout_height="wrap_content"
                 >
 
+                <ImageView
+                    android:id="@+id/email_input_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/email_content_description"
+                    app:layout_constraintBottom_toBottomOf="@+id/email_input_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/email_input_layout"
+                    app:srcCompat="@drawable/ic_email_24"
+                    />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/email_input_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/normal_spacing"
                     android:hint="@string/email_label"
                     app:endIconMode="clear_text"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/email_input_icon"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:startIconContentDescription="@string/email_content_description"
-                    app:startIconDrawable="@drawable/ic_email_24dp"
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -51,21 +76,33 @@
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
                         android:text="@={viewModel.email}"
+                        android:onTextChanged="@{(text, start, before, count) -> viewModel.onChangeEmail()}"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <ImageView
+                    android:id="@+id/password_input_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/password_content_description"
+                    app:layout_constraintBottom_toBottomOf="@+id/password_input_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/password_input_layout"
+                    app:srcCompat="@drawable/ic_padlock_24"
+                    />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password_input_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/normal_spacing"
                     android:layout_marginTop="@dimen/normal_spacing"
                     android:hint="@string/password_label"
                     app:endIconMode="password_toggle"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/password_input_icon"
                     app:layout_constraintTop_toBottomOf="@+id/email_input_layout"
-                    app:startIconContentDescription="@string/password_content_description"
-                    app:startIconDrawable="@drawable/ic_lock_24dp"
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -75,6 +112,7 @@
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
                         android:text="@={viewModel.password}"
+                        android:onTextChanged="@{(text, start, before, count) -> viewModel.onChangePassword()}"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,12 +134,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/normal_spacing"
-                    android:text="@string/create_account"
                     android:onClick="@{() -> viewModel.createAccount()}"
+                    android:text="@string/create_account"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/password_input_layout"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
-    </FrameLayout>
+    </LinearLayout>
 </layout>

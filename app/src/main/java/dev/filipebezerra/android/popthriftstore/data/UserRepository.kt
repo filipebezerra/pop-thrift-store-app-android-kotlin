@@ -11,6 +11,8 @@ class UserRepository {
 
     fun getCurrentUser(): User? = CURRENT_USER
 
+    fun isUserLoggedIn(): Boolean = getCurrentUser() != null
+
     @Synchronized
     fun signInUser(fullName: String, email: String): User {
         Preconditions.checkState(CURRENT_USER == null, "User already logged in")
