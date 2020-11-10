@@ -17,6 +17,10 @@
             app:destination="@id/welcome_screen"
             app:popUpTo="@id/navigation_graph"
             app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
     <fragment
@@ -30,6 +34,10 @@
             app:destination="@id/instruction_screen"
             app:popUpTo="@id/navigation_graph"
             app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
     <fragment
@@ -43,6 +51,10 @@
             app:destination="@id/product_list_screen"
             app:popUpTo="@id/navigation_graph"
             app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
     <fragment
@@ -55,6 +67,14 @@
             android:name="productId"
             app:argType="long"
             />
+        <action
+            android:id="@+id/action_product_detail_to_product_list"
+            app:destination="@id/product_list_screen"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/product_list_screen"
@@ -65,10 +85,19 @@
         <action
             android:id="@+id/action_product_list_to_product_detail"
             app:destination="@id/product_detail_screen"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/product_list_screen"
             />
         <action
             android:id="@+id/action_product_list_to_login"
             app:destination="@id/login_screen"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
 </navigation>
