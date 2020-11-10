@@ -9,6 +9,10 @@ import dev.filipebezerra.android.popthriftstore.util.ext.postEvent
 
 class InstructionsViewModel : ViewModel() {
 
+    private val _nextButtonTextRes = MutableLiveData<Int>().apply { value = R.string.next_instruction }
+    val nextButtonTextRes: LiveData<Int>
+        get() = _nextButtonTextRes
+
     private val _navigateToHome = MutableLiveData<Event<Any>>()
     val navigateToHome: LiveData<Event<Any>>
         get() = _navigateToHome
@@ -46,19 +50,25 @@ class InstructionsViewModel : ViewModel() {
     fun skip() = finishInstructions()
 
     fun next() {
-        if (currentInstructionPosition.value == instructionItems.value?.size?.minus(1)) {
+        if (_currentInstructionPosition.value == instructionItems.value?.size?.minus(1)) {
             finishInstructions()
             return
         }
 
-        setCurrentInstructionPosition(currentInstructionPosition.value!!.inc())
+        currentInstructionPosition.value!!.inc()
+            .apply {
+                setCurrentInstructionPosition(this)
+                if (this == _instructionItems.value?.lastIndex) {
+                    _nextButtonTextRes.value = R.string.done_instruction
+                }
+            }
     }
 
     fun changeCurrentInstructionPosition(position: Int) =
         setCurrentInstructionPosition(position)
 
     private fun setCurrentInstructionPosition(position: Int) {
-        if (position == currentInstructionPosition.value) return
+        if (position == _currentInstructionPosition.value) return
 
         synchronized(this) {
             _currentInstructionPosition.value = position

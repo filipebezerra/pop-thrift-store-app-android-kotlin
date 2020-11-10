@@ -61,7 +61,7 @@
             android:layout_marginEnd="@dimen/normal_spacing"
             android:layout_marginBottom="@dimen/normal_spacing"
             android:onClick="@{() -> viewModel.next()}"
-            android:text="@string/next_instruction"
+            app:toText="@{viewModel.nextButtonTextRes}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />

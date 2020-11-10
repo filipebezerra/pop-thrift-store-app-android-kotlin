@@ -48,4 +48,5 @@
     <string name="password_is_required">Type your password</string>
     <string name="please_complete_login_form">Complete the login form above, please!</string>
     <string name="navigation_close_icon_content_description">Cancel navigation and finish app</string>
+    <string name="done_instruction">Done</string>
 </resources>
