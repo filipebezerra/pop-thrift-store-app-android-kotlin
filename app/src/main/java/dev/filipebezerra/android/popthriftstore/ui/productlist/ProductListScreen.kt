@@ -1,19 +1,22 @@
 package dev.filipebezerra.android.popthriftstore.ui.productlist
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import dev.filipebezerra.android.popthriftstore.R
 import dev.filipebezerra.android.popthriftstore.databinding.ProductListScreenBinding
+import dev.filipebezerra.android.popthriftstore.MainActivityViewModel
 import dev.filipebezerra.android.popthriftstore.ui.productlist.ProductListViewModel.Companion.provideFactory
 import dev.filipebezerra.android.popthriftstore.util.event.EventObserver
 import dev.filipebezerra.android.popthriftstore.ui.productlist.ProductListScreenDirections.Companion.actionProductListToProductDetail as toProductDetail
 import dev.filipebezerra.android.popthriftstore.ui.productlist.ProductListScreenDirections.Companion.actionProductListToLogin as toLogin
 
 class ProductListScreen : Fragment() {
+
+    private val mainActivityViewModel: MainActivityViewModel by activityViewModels { MainActivityViewModel.provideFactory() }
 
     private val productListViewModel: ProductListViewModel by viewModels { provideFactory() }
 
@@ -22,6 +25,11 @@ class ProductListScreen : Fragment() {
     private lateinit var viewBinding: ProductListScreenBinding
 
     private lateinit var productAdapter: ProductAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,5 +63,18 @@ class ProductListScreen : Fragment() {
             EventObserver { productId ->
                 navController.navigate(toProductDetail(productId))
             })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.logout_action -> {
+            mainActivityViewModel.logout()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
     }
 }

@@ -1,6 +1,7 @@
 package dev.filipebezerra.android.popthriftstore
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -9,9 +10,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import dev.filipebezerra.android.popthriftstore.MainActivityViewModel.Companion.provideFactory
 import dev.filipebezerra.android.popthriftstore.databinding.MainActivityBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel: MainActivityViewModel by viewModels { provideFactory() }
 
     private val navController: NavController by lazy { findNavController(R.id.nav_host_fragment) }
 
@@ -33,7 +37,12 @@ class MainActivity : AppCompatActivity() {
                 appBarConfiguration
             )
         }
+        setupNavController()
+        setupToolbarNavigation()
+        observeUi()
+    }
 
+    private fun setupNavController() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.login_screen,
@@ -48,14 +57,24 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
 
+    private fun setupToolbarNavigation() {
         viewBinding.toolbar.setNavigationOnClickListener {
             when (navController.currentDestination?.id) {
                 R.id.login_screen,
                 R.id.welcome_screen,
-                R.id.instruction_screen -> { finish() }
+                R.id.instruction_screen -> {
+                    finish()
+                }
                 else -> onSupportNavigateUp()
             }
+        }
+    }
+
+    private fun observeUi() {
+        viewModel.finishApplication.observe(this) {
+            finish()
         }
     }
 
