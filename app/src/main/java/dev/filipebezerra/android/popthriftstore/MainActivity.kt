@@ -27,9 +27,7 @@ class MainActivity : AppCompatActivity() {
         ).apply {
             viewBinding = this
             setSupportActionBar(this.toolbar)
-            appBarConfiguration = AppBarConfiguration(
-                navController.graph
-            )
+            appBarConfiguration = AppBarConfiguration(navController.graph)
             setupActionBarWithNavController(
                 navController,
                 appBarConfiguration
@@ -56,6 +54,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.login_screen,
                 R.id.welcome_screen,
                 R.id.instruction_screen -> { finish() }
+                else -> onSupportNavigateUp()
             }
         }
     }
