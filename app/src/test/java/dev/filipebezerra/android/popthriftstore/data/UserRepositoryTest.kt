@@ -21,9 +21,7 @@ class UserRepositoryTest {
     }
 
     @After
-    fun tearDown() {
-        userRepository.signOutUser()
-    }
+    fun tearDown() {}
 
     @Test
     fun given_no_user_when_get_current_user_then_return_null() {
@@ -41,6 +39,17 @@ class UserRepositoryTest {
                 assertEquals("filipebzerra@gmail.com", currentUser!!.email)
                 assertEquals("Filipe Bezerra", currentUser.fullName)
             }
+            signOutUser()
+        }
+    }
+
+    @Test
+    fun given_logged_in_user_when_logging_out_then_no_current_user_should_be_returned() {
+        userRepository.apply {
+            signInUser("Filipe Bezerra", "filipebzerra@gmail.com")
+            assertNotNull(getCurrentUser())
+            signOutUser()
+            assertNull(getCurrentUser())
         }
     }
 }
