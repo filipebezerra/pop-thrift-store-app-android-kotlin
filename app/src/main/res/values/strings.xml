@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Pop Thrift store</string>
     <string name="login_title">Let\'s enter your account</string>
-    <string name="welcome_title">Welcome dear %s</string>
+    <string name="welcome_title">Welcome dear</string>
     <string name="instruction_title">Let\'s discover the benefits</string>
     <string name="product_list_title">Anything you ever need</string>
     <string name="product_detail_title">Details</string>

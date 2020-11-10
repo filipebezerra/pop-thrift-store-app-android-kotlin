@@ -18,51 +18,57 @@
         tools:context=".ui.welcome.WelcomeScreen"
         >
 
-        <ImageView
-            android:id="@+id/welcome_image"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/large_spacing"
-            android:contentDescription="@string/welcome_image_content_description"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            app:layout_constraintBottom_toTopOf="@+id/separator_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_best_offer"
-            />
-
-        <TextView
-            android:id="@+id/title_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/normal_spacing"
-            android:text="@string/title_welcome_text"
-            android:textAppearance="?attr/textAppearanceHeadline4"
-            app:layout_constraintEnd_toEndOf="@+id/welcome_image"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/welcome_image"
-            app:layout_constraintTop_toBottomOf="@+id/welcome_image"
-            />
-
-        <TextView
-            android:id="@+id/welcome_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/normal_spacing"
-            android:text="@string/content_welcome_text"
-            android:textAppearance="?attr/textAppearanceBody1"
-            app:layout_constraintBottom_toTopOf="@+id/separator_view"
-            app:layout_constraintEnd_toEndOf="@+id/welcome_image"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/welcome_image"
-            app:layout_constraintTop_toBottomOf="@+id/title_text"
             app:layout_constraintVertical_bias="0.0"
-            />
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/large_spacing"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:id="@+id/welcome_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/welcome_image_content_description"
+                    app:srcCompat="@drawable/ic_best_offer"
+                    />
+
+                <TextView
+                    android:id="@+id/title_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/normal_spacing"
+                    android:text="@string/title_welcome_text"
+                    android:textAppearance="?attr/textAppearanceHeadline4"
+                    />
+
+                <TextView
+                    android:id="@+id/welcome_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/normal_spacing"
+                    android:text="@string/content_welcome_text"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
         <View
             android:id="@+id/separator_view"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginBottom="@dimen/normal_spacing"
+            android:layout_marginBottom="@dimen/small_spacing"
             android:background="?android:attr/listDivider"
             app:layout_constraintBottom_toTopOf="@+id/start_shopping_button"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,13 +80,15 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/normal_spacing"
-            android:layout_marginEnd="@dimen/normal_spacing"
-            android:layout_marginBottom="@dimen/normal_spacing"
+            android:layout_marginStart="@dimen/small_spacing"
+            android:layout_marginEnd="@dimen/small_spacing"
+            android:layout_marginBottom="@dimen/small_spacing"
             android:onClick="@{() -> viewModel.startShopping()}"
             android:text="@string/lets_get_started"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
