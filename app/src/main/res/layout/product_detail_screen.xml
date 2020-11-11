@@ -12,30 +12,30 @@
             />
     </data>
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
         tools:context=".ui.productdetail.ProductDetailScreen"
         >
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/product_card"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/small_spacing"
-            android:contentDescription="@string/product_card_content_description"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
             >
 
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/product_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_margin="@dimen/small_spacing"
+                android:contentDescription="@string/product_card_content_description"
                 >
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     >
 
                     <ImageView
@@ -51,24 +51,38 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:padding="@dimen/smallest_spacing"
+                        android:layout_marginTop="@dimen/large_spacing"
+                        android:orientation="vertical"
+                        android:padding="@dimen/normal_spacing"
                         >
+
+                        <TextView
+                            android:id="@+id/product_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.product.name}"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="Salto grosso preto Paula Villalonge"
+                            />
 
                         <TextView
                             android:id="@+id/product_pricing"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/normal_spacing"
                             android:layout_marginEnd="@dimen/product_spacing"
                             android:background="@color/product_labels_background"
                             android:padding="@dimen/product_spacing"
-                            android:textAppearance="?attr/textAppearanceCaption"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
                             android:textColor="?attr/colorPrimary"
-                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/product_rating"
                             app:layout_constraintHorizontal_chainStyle="spread_inside"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/product_name"
                             app:pricing="@{viewModel.product}"
                             tools:text="R$72 R$135"
                             />
@@ -80,10 +94,10 @@
                             android:layout_marginStart="@dimen/product_spacing"
                             android:background="@color/product_labels_background"
                             android:padding="@dimen/product_spacing"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@+id/product_pricing"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/product_pricing"
-                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/product_pricing"
                             >
 
                             <RatingBar
@@ -92,67 +106,66 @@
                                 android:layout_height="wrap_content"
                                 android:isIndicator="true"
                                 android:numStars="5"
-                                android:rating="@{viewModel.product.rating}"
                                 android:progressBackgroundTint="@color/product_rating_background"
+                                android:rating="@{viewModel.product.rating}"
                                 android:stepSize="0.5"
                                 tools:rating="4"
                                 />
                         </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/normal_spacing"
+                            android:text="@{@string/sold_by(viewModel.product.sellerName)}"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/product_rating"
+                            tools:text="Gabriela"
+                            />
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
-                </FrameLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/normal_spacing"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.product.name}"
-                        android:textAppearance="?attr/textAppearanceHeadline6"
-                        tools:text="Salto grosso preto Paula Villalonge"
-                        />
+                        android:layout_margin="@dimen/small_spacing"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@{viewModel.product.sellerName}"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"
-                        tools:text="Gabriela"
-                        />
+                        <com.google.android.material.button.MaterialButton
+                            style="?attr/borderlessButtonStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:onClick="@{() -> viewModel.addToWishList()}"
+                            android:text="@string/add_to_wish_list"
+                            />
 
+                        <com.google.android.material.button.MaterialButton
+                            style="?attr/borderlessButtonStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="@{() -> viewModel.shareProduct()}"
+                            android:text="@string/share_product"
+                            />
+                    </LinearLayout>
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/small_spacing"
-                    android:orientation="horizontal"
-                    >
-
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/add_to_cart"
-                        android:onClick="@{() -> viewModel.addToCart()}"
-                        />
-
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/add_to_wish_list"
-                        android:onClick="@{() -> viewModel.addToWishList()}"
-                        />
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </androidx.core.widget.NestedScrollView>
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="@{() -> viewModel.addToCart()}"
+            android:text="@{viewModel.productIsInCart ? @string/product_in_cart : @string/add_to_cart}"
+            app:layout_anchor="@+id/product_image"
+            app:layout_anchorGravity="bottom|end"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

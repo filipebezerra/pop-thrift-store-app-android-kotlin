@@ -5,13 +5,15 @@ import dev.filipebezerra.android.popthriftstore.R
 import dev.filipebezerra.android.popthriftstore.ServiceLocator
 import dev.filipebezerra.android.popthriftstore.data.Product
 import dev.filipebezerra.android.popthriftstore.data.ProductRepository
+import dev.filipebezerra.android.popthriftstore.data.ShoppingCartRepository
 import dev.filipebezerra.android.popthriftstore.util.event.Event
 import dev.filipebezerra.android.popthriftstore.util.ext.postEvent
 import kotlinx.coroutines.launch
 
 class ProductDetailViewModel(
-    private val productRepository: ProductRepository,
     private val productId: Long,
+    private val productRepository: ProductRepository,
+    private val shoppingCartRepository: ShoppingCartRepository,
 ) : ViewModel() {
 
     private val _product = MutableLiveData<Product>()
@@ -22,9 +24,9 @@ class ProductDetailViewModel(
     val messaging: LiveData<Event<Int>>
         get() = _messaging
 
-    private val _navigateBack = MutableLiveData<Event<Boolean>>()
-    val navigateBack: LiveData<Event<Boolean>>
-        get() = _navigateBack
+    val productIsInCart: LiveData<Boolean> = Transformations.map(_product) {
+        shoppingCartRepository.checkIfProductIsInCart(it)
+    }
 
     init {
         loadProduct()
@@ -37,13 +39,22 @@ class ProductDetailViewModel(
     }
 
     fun addToCart() {
-        _messaging.postEvent(R.string.added_to_cart)
-//        _navigateBack.postEvent(true)
+        _product.value?.let {
+            if (productIsInCart.value!!) {
+                _messaging.postEvent(R.string.product_already_in_cart)
+                return
+            }
+            _product.value = shoppingCartRepository.addToShoppingCart(it)
+            _messaging.postEvent(R.string.added_to_cart)
+        }
     }
 
     fun addToWishList() {
         _messaging.postEvent(R.string.added_to_wish_list)
-//        _navigateBack.postEvent(true)
+    }
+
+    fun shareProduct() {
+
     }
 
     companion object {
@@ -53,8 +64,9 @@ class ProductDetailViewModel(
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
                 ProductDetailViewModel(
-                    ServiceLocator.provideProductRepository(),
                     productId,
+                    ServiceLocator.provideProductRepository(),
+                    ServiceLocator.provideShoppingCartRepository(),
                 ) as T
         }
     }

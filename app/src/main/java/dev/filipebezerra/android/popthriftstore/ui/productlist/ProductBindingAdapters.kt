@@ -47,7 +47,7 @@ fun bindPricing(textView: TextView, product: Product) {
             Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
         )
         setSpan(
-            RelativeSizeSpan(1.1f),
+            RelativeSizeSpan(1.2f),
             whitespaceIndex + 1,
             lengthIndex,
             Spanned.SPAN_EXCLUSIVE_EXCLUSIVE

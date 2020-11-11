@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -33,6 +34,21 @@ class ProductDetailScreen : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewBinding.lifecycleOwner = viewLifecycleOwner
-        view?.setupSnackbar(viewLifecycleOwner, productDetailViewModel.messaging, Snackbar.LENGTH_SHORT)
+        setupSnackbar()
+        observeUi()
     }
+
+    private fun setupSnackbar() =
+        view?.setupSnackbar(
+            viewLifecycleOwner,
+            productDetailViewModel.messaging,
+            Snackbar.LENGTH_SHORT
+        )
+
+    private fun observeUi() {
+        productDetailViewModel.product.observe(viewLifecycleOwner) { setActionBarTitle(it.name) }
+    }
+
+    private fun setActionBarTitle(title: String) =
+        title.let { (requireActivity() as AppCompatActivity).supportActionBar?.title = title }
 }

@@ -4,7 +4,6 @@
     <string name="welcome_title">Welcome dear</string>
     <string name="instruction_title">Let\'s discover the benefits</string>
     <string name="product_list_title">Anything you ever need</string>
-    <string name="product_detail_title">Details</string>
     <string name="email_label">Email</string>
     <string name="email_content_description">Fill with your email</string>
     <string name="password_content_description">Fill with your password</string>
@@ -39,6 +38,8 @@
     <string name="pricing_format">$%.0f</string>
     <string name="discounted_pricing_format">$%1$.0f $%2$.0f</string>
     <string name="add_to_cart">Add to cart</string>
+    <string name="product_in_cart">Product in cart</string>
+    <string name="product_already_in_cart">This product is already in your cart</string>
     <string name="add_to_wish_list">Add to wish list</string>
     <string name="added_to_cart">Amazing! This product was added to cart</string>
     <string name="added_to_wish_list">
@@ -50,4 +51,6 @@
     <string name="navigation_close_icon_content_description">Cancel navigation and finish app</string>
     <string name="done_instruction">Done</string>
     <string name="logout_action">Logout</string>
+    <string name="share_product">Share product</string>
+    <string name="sold_by">Sold by %s</string>
 </resources>

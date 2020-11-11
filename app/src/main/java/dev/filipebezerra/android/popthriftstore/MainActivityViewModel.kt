@@ -5,11 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDestination
+import dev.filipebezerra.android.popthriftstore.data.ShoppingCartRepository
 import dev.filipebezerra.android.popthriftstore.data.UserRepository
 import dev.filipebezerra.android.popthriftstore.util.event.Event
 import dev.filipebezerra.android.popthriftstore.util.ext.postEvent
 
-class MainActivityViewModel(private val userRepository: UserRepository) : ViewModel() {
+class MainActivityViewModel(
+    private val userRepository: UserRepository,
+    private val shoppingCartRepository: ShoppingCartRepository,
+) : ViewModel() {
 
     private val _finishApplication = MutableLiveData<Event<Any>>()
     val finishApplication: LiveData<Event<Any>>
@@ -21,7 +25,7 @@ class MainActivityViewModel(private val userRepository: UserRepository) : ViewMo
 
     fun logout() {
         if (userRepository.isUserLoggedIn()) {
-            userRepository.signOutUser()
+            shoppingCartRepository.endSession()
             _finishApplication.postEvent(true)
         }
     }
@@ -44,6 +48,7 @@ class MainActivityViewModel(private val userRepository: UserRepository) : ViewMo
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
                 MainActivityViewModel(
                     ServiceLocator.provideUserRepository(),
+                    ServiceLocator.provideShoppingCartRepository(),
                 ) as T
         }
     }

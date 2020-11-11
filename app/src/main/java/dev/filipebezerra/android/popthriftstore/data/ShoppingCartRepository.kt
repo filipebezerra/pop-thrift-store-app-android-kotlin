@@ -22,17 +22,17 @@ class ShoppingCartRepository(
         }
     }
 
-    fun addToShoppingCart(product: Product) {
-        getCart(userRepository)
+    @Synchronized
+    fun addToShoppingCart(product: Product): Product = getCart(userRepository)
             .takeUnless { it.products.contains(product) }
             .apply {
                 Preconditions.checkState(this != null, "Product is already in cart")
                 this!!.products.add(product)
-            }
-    }
+            }.let { product }
 
     fun getCart(): ShoppingCart = getCart(userRepository)
 
+    @Synchronized
     fun endSession() {
         userRepository.getCurrentUser()?.let {
             getCart(userRepository).apply {
@@ -42,4 +42,7 @@ class ShoppingCartRepository(
             }
         }
     }
+
+    @Synchronized
+    fun checkIfProductIsInCart(product: Product) = getCart().products.contains(product)
 }

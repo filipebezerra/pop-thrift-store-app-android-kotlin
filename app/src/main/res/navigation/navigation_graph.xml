@@ -60,20 +60,11 @@
     <fragment
         android:id="@+id/product_detail_screen"
         android:name="dev.filipebezerra.android.popthriftstore.ui.productdetail.ProductDetailScreen"
-        android:label="@string/product_detail_title"
         tools:layout="@layout/product_detail_screen"
         >
         <argument
             android:name="productId"
             app:argType="long"
-            />
-        <action
-            android:id="@+id/action_product_detail_to_product_list"
-            app:destination="@id/product_list_screen"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
     <fragment
