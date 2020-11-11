@@ -28,6 +28,10 @@ class ProductDetailViewModel(
         shoppingCartRepository.checkIfProductIsInCart(it)
     }
 
+    private val _shareProduct = MutableLiveData<Event<Any>>()
+    val shareProduct: LiveData<Event<Any>>
+        get() = _shareProduct
+
     init {
         loadProduct()
     }
@@ -54,7 +58,7 @@ class ProductDetailViewModel(
     }
 
     fun shareProduct() {
-
+        _shareProduct.postEvent(true)
     }
 
     companion object {

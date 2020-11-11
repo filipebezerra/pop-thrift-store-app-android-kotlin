@@ -53,4 +53,10 @@
     <string name="logout_action">Logout</string>
     <string name="share_product">Share product</string>
     <string name="sold_by">Sold by %s</string>
+    <string name="share_discounted_product_text">
+        I found this %1$s for just $%2$.0f in the Pop Thrift store app and I thought I would love it too
+    </string>
+    <string name="share_product_text">
+        I found this %1$s for $%2$.0f in the Pop Thrift store app and I thought I would love it too
+    </string>
 </resources>
