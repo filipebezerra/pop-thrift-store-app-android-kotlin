@@ -50,7 +50,7 @@
     <string name="please_complete_login_form">Complete the login form above, please!</string>
     <string name="navigation_close_icon_content_description">Cancel navigation and finish app</string>
     <string name="done_instruction">Done</string>
-    <string name="logout_action">Logout</string>
+    <string name="logout_menu">Logout</string>
     <string name="share_product">Share product</string>
     <string name="sold_by">Sold by %s</string>
     <string name="share_discounted_product_text">
@@ -59,4 +59,5 @@
     <string name="share_product_text">
         I found this %1$s for $%2$.0f in the Pop Thrift store app and I thought I would love it too
     </string>
+    <string name="my_cart_menu">My cart</string>
 </resources>

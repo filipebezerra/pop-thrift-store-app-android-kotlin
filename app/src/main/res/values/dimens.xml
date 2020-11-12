@@ -7,4 +7,5 @@
     <dimen name="normal_spacing">16dp</dimen>
     <dimen name="large_spacing">32dp</dimen>
     <dimen name="product_image_height">194dp</dimen>
+    <dimen name="badge_text_size">12sp</dimen>
 </resources>

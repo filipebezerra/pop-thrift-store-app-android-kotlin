@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ic_my_cart"
+        android:drawable="@drawable/ic_baseline_shopping_cart_24"
+        android:gravity="center"
+        />
+    <item
+        android:id="@+id/ic_badge"
+        android:drawable="@android:color/transparent"
+        />
+</layer-list>

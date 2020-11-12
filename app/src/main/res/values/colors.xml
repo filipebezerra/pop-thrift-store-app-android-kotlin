@@ -10,4 +10,5 @@
     <color name="product_labels_background">#CCffffff</color>
     <color name="product_rating_background">#CC03DAC5</color>
     <color name="snackbar_background">@color/purple_500</color>
+    <color name="red_500">#F44336</color>
 </resources>
