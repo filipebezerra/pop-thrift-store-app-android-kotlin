@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import dev.filipebezerra.android.popthriftstore.R
 
+// https://medium.com/@codkiller0911/adding-notification-badges-to-the-icons-in-android-b29ab4e15625
 class BadgeDrawable(context: Context) : Drawable() {
 
     var count = 0

@@ -19,6 +19,10 @@ class MainActivityViewModel(
     val finishApplication: LiveData<Event<Any>>
         get() = _finishApplication
 
+    private val _navigateToLogin = MutableLiveData<Event<Any>>()
+    val navigateToLogin: LiveData<Event<Any>>
+        get() = _navigateToLogin
+
     private val _navigateUp = MutableLiveData<Event<Any>>()
     val navigateUp: LiveData<Event<Any>>
         get() = _navigateUp
@@ -26,7 +30,7 @@ class MainActivityViewModel(
     fun logout() {
         if (userRepository.isUserLoggedIn()) {
             shoppingCartRepository.endSession()
-            _finishApplication.postEvent(true)
+            _navigateToLogin.postEvent(true)
         }
     }
 

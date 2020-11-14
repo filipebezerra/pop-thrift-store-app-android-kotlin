@@ -72,6 +72,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.navigateUp.observe(this) {
             onSupportNavigateUp()
         }
+        viewModel.navigateToLogin.observe(this) {
+            navController.navigate(R.id.login_screen)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean =
