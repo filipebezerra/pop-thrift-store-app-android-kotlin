@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import dev.filipebezerra.android.popthriftstore.R
@@ -16,6 +18,7 @@ import dev.filipebezerra.android.popthriftstore.databinding.ProductDetailScreenB
 import dev.filipebezerra.android.popthriftstore.ui.productdetail.ProductDetailViewModel.Companion.provideFactory
 import dev.filipebezerra.android.popthriftstore.ui.util.setupSnackbar
 import dev.filipebezerra.android.popthriftstore.util.event.EventObserver
+import dev.filipebezerra.android.popthriftstore.ui.productdetail.ProductDetailScreenDirections.Companion.actionProductDetailToAddToWishList as toAddToWishList
 
 class ProductDetailScreen : Fragment() {
 
@@ -24,6 +27,8 @@ class ProductDetailScreen : Fragment() {
     private val productDetailViewModel: ProductDetailViewModel by viewModels { provideFactory(args.productId) }
 
     private lateinit var viewBinding: ProductDetailScreenBinding
+
+    private val navController: NavController by lazy { findNavController() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +59,10 @@ class ProductDetailScreen : Fragment() {
         productDetailViewModel.shareProduct.observe(viewLifecycleOwner, EventObserver {
             createShareIntent()
         })
+        productDetailViewModel.navigateToAddToWishList.observe(viewLifecycleOwner,
+            EventObserver {
+                navController.navigate(toAddToWishList())
+            })
     }
 
     private fun createShareIntent() {

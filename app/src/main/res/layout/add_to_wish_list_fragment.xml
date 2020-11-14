@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <import type="android.text.TextUtils" />
+        <variable
+            name="viewModel"
+            type="dev.filipebezerra.android.popthriftstore.ui.addtowishlist.AddToWishListViewModel"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/large_spacing"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wish_list_name_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/wish_list_name_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="textAutoCorrect|textCapSentences|textAutoComplete"
+                android:text="@={viewModel.wishListName}"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/add_to_wish_list_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/large_spacing"
+            android:contentDescription="@string/add_to_wish_list_content_desc"
+            android:onClick="@{() -> viewModel.addToWishList()}"
+            android:enabled="@{!TextUtils.isEmpty(viewModel.wishListName)}"
+            android:text="@string/add_to_wish_list_button"
+            app:icon="@drawable/ic_bookmark_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wish_list_name_input"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

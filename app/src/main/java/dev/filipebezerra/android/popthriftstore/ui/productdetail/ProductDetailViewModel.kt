@@ -32,6 +32,10 @@ class ProductDetailViewModel(
     val shareProduct: LiveData<Event<Any>>
         get() = _shareProduct
 
+    private val _navigateToAddToWishList = MutableLiveData<Event<Product>>()
+    val navigateToAddToWishList: LiveData<Event<Product>>
+        get() = _navigateToAddToWishList
+
     init {
         loadProduct()
     }
@@ -54,7 +58,7 @@ class ProductDetailViewModel(
     }
 
     fun addToWishList() {
-        _messaging.postEvent(R.string.added_to_wish_list)
+        _navigateToAddToWishList.postEvent(_product.value!!)
     }
 
     fun shareProduct() {

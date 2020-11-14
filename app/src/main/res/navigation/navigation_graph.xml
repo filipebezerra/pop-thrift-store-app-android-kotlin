@@ -66,6 +66,10 @@
             android:name="productId"
             app:argType="long"
             />
+        <action
+            android:id="@+id/action_product_detail_to_add_to_wish_list"
+            app:destination="@id/add_to_wish_list_screen"
+            />
     </fragment>
     <fragment
         android:id="@+id/product_list_screen"
@@ -91,4 +95,9 @@
             app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
+    <dialog
+        android:id="@+id/add_to_wish_list_screen"
+        android:name="dev.filipebezerra.android.popthriftstore.ui.addtowishlist.AddToWishListFragment"
+        tools:layout="@layout/add_to_wish_list_fragment"
+        />
 </navigation>

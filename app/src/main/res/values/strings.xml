@@ -60,4 +60,7 @@
         I found this %1$s for $%2$.0f in the Pop Thrift store app and I thought I would love it too
     </string>
     <string name="my_cart_menu">My cart</string>
+    <string name="add_to_wish_list_button">Add to wish list</string>
+    <string name="wish_list_name_hint">Give it a name to your wish list</string>
+    <string name="add_to_wish_list_content_desc">Add the current product to your wish list</string>
 </resources>
