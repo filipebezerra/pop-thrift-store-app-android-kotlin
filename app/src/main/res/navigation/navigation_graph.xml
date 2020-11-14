@@ -27,7 +27,7 @@
         android:id="@+id/welcome_screen"
         android:name="dev.filipebezerra.android.popthriftstore.ui.welcome.WelcomeScreen"
         android:label="@string/welcome_title"
-        tools:layout="@layout/welcome_fragment"
+        tools:layout="@layout/welcome_screen"
         >
         <action
             android:id="@+id/action_welcome_screen_to_instruction_screen"
@@ -44,7 +44,7 @@
         android:id="@+id/instruction_screen"
         android:name="dev.filipebezerra.android.popthriftstore.ui.instructions.InstructionsScreen"
         android:label="@string/instruction_title"
-        tools:layout="@layout/instructions_fragment"
+        tools:layout="@layout/instructions_screen"
         >
         <action
             android:id="@+id/action_instruction_screen_to_shoe_list_screen"

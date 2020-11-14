@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import dev.filipebezerra.android.popthriftstore.databinding.WelcomeFragmentBinding
+import dev.filipebezerra.android.popthriftstore.databinding.WelcomeScreenBinding
 import dev.filipebezerra.android.popthriftstore.ui.welcome.WelcomeScreenDirections.Companion.actionWelcomeScreenToInstructionScreen as toInstruction
 
 class WelcomeScreen : Fragment() {
@@ -16,12 +16,12 @@ class WelcomeScreen : Fragment() {
 
     private val navController by lazy { findNavController() }
 
-    private lateinit var viewBinding: WelcomeFragmentBinding
+    private lateinit var viewBinding: WelcomeScreenBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = WelcomeFragmentBinding.inflate(inflater)
+    ): View? = WelcomeScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
             this.lifecycleOwner = viewLifecycleOwner
