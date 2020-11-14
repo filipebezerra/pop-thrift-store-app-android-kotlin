@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar.LENGTH_LONG
-import dev.filipebezerra.android.popthriftstore.R
-import dev.filipebezerra.android.popthriftstore.databinding.LoginFragmentBinding
+import dev.filipebezerra.android.popthriftstore.databinding.LoginScreenBinding
 import dev.filipebezerra.android.popthriftstore.ui.login.LoginViewModel.Companion.provideFactory
 import dev.filipebezerra.android.popthriftstore.ui.util.setupSnackbar
 import dev.filipebezerra.android.popthriftstore.util.event.EventObserver
@@ -22,12 +20,12 @@ class LoginScreen : Fragment() {
 
     private val navController by lazy { findNavController() }
 
-    private lateinit var viewBinding: LoginFragmentBinding
+    private lateinit var viewBinding: LoginScreenBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = LoginFragmentBinding.inflate(inflater)
+    ): View? = LoginScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
             this.lifecycleOwner = viewLifecycleOwner
@@ -57,6 +55,6 @@ class LoginScreen : Fragment() {
         viewLifecycleOwner,
         loginViewModel.messaging,
         LENGTH_LONG,
-        viewBinding.fab,
+        viewBinding.loginFab,
     )
 }

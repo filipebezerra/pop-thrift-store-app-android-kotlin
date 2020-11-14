@@ -5,7 +5,6 @@
     >
 
     <data>
-
         <variable
             name="viewModel"
             type="dev.filipebezerra.android.popthriftstore.ui.login.LoginViewModel"
@@ -149,16 +148,17 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/login_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
             android:contentDescription="@string/fab_login_content_description"
             android:onClick="@{() -> viewModel.loginMe()}"
+            android:text="@string/get_in_text"
+            app:icon="@drawable/ic_login_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_login_24dp"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

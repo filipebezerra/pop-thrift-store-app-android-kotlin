@@ -10,7 +10,7 @@
         android:id="@+id/login_screen"
         android:name="dev.filipebezerra.android.popthriftstore.ui.login.LoginScreen"
         android:label="@string/login_title"
-        tools:layout="@layout/login_fragment"
+        tools:layout="@layout/login_screen"
         >
         <action
             android:id="@+id/action_login_screen_to_welcome_screen"
