@@ -23,7 +23,6 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import com.google.android.material.snackbar.BaseTransientBottomBar.ANIMATION_MODE_FADE
 import com.google.android.material.snackbar.BaseTransientBottomBar.ANIMATION_MODE_SLIDE
 import com.google.android.material.snackbar.Snackbar
 import dev.filipebezerra.android.popthriftstore.R
@@ -37,12 +36,18 @@ fun View.showSnackbar(
     snackbarText: String,
     timeLength: Int,
     anchorView: View? = null,
+    onDismiss: (() -> Unit)? = null,
 ) {
     Snackbar.make(this, snackbarText, timeLength)
         .apply {
             animationMode = ANIMATION_MODE_SLIDE
             setAnchorView(anchorView)
             setBackgroundTint(ContextCompat.getColor(context, R.color.snackbar_background))
+            addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                    onDismiss?.invoke()
+                }
+            })
         }
         .run { show() }
 }
@@ -55,6 +60,7 @@ fun View.setupSnackbar(
     snackbarEvent: LiveData<Event<Int>>,
     timeLength: Int,
     anchorView: View? = null,
+    onDismiss: (() -> Unit)? = null
 ) = snackbarEvent.observe(lifecycleOwner, EventObserver {
-    showSnackbar(context.getString(it), timeLength, anchorView)
+    showSnackbar(context.getString(it), timeLength, anchorView, onDismiss)
 })

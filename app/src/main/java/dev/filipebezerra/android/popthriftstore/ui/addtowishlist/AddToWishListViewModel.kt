@@ -9,13 +9,13 @@ import dev.filipebezerra.android.popthriftstore.util.ext.postEvent
 
 class AddToWishListViewModel : ViewModel() {
 
-    private val _productAdded = MutableLiveData<Event<Int>>()
-    val productAdded: LiveData<Event<Int>>
-        get() = _productAdded
+    private val _messaging = MutableLiveData<Event<Int>>()
+    val messaging: LiveData<Event<Int>>
+        get() = _messaging
 
     val wishListName = MutableLiveData<String>()
 
     fun addToWishList() {
-        _productAdded.postEvent(R.string.added_to_wish_list)
+        _messaging.postEvent(R.string.added_to_wish_list)
     }
 }
