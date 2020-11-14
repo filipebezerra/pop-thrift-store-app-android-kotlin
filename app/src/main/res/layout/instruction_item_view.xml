@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    In this screen I decided to use NestedScrollView because instruction text could change
+    dynamically then getting bigger forcing the user to scroll the screen.
+
+    Initially I used ConstraintLayout as a child of NestedScrollView but then I realized
+    that there wasn't no need to use it because there's no requirements within this screen
+    for constraining views to each other or to their parent
+-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
 
@@ -10,47 +17,39 @@
         android:clipToPadding="false"
         >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/large_spacing"
+            android:orientation="vertical"
             >
 
             <ImageView
                 android:id="@+id/instruction_image"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="360dp"
                 android:contentDescription="@string/welcome_image_content_description"
                 android:scaleType="fitCenter"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@drawable/ic_all_you_can_find"
                 />
 
             <TextView
                 android:id="@+id/title_text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/normal_spacing"
                 android:textAppearance="?attr/textAppearanceHeadline4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/instruction_image"
                 tools:text="@string/title_all_you_can_find_instruction"
                 />
 
             <TextView
                 android:id="@+id/description_text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/normal_spacing"
                 android:textAppearance="?attr/textAppearanceBody1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_text"
                 tools:text="@string/content_all_you_can_find_instruction"
                 />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

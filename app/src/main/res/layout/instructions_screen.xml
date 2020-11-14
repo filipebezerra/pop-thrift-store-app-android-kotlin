@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    This screen needs to arrange the navigation buttons (skip, next and done) to the bottom
+    of the screen and both need to be constrained to the extreme opposite side in the X axis,
+    so it's better to use ConstraintLayout to have a flatten view tree to faster draws and
+    reduce memory usage.
+-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

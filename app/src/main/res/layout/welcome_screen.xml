@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    This screen needs to arrange the navigation button (let's get started) to the bottom
+    of the screen.
+
+    Also In this screen I decided to use NestedScrollView because welcome text could change
+    dynamically then getting bigger forcing the user to scroll the screen.
+-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
 
     <data>
-
         <variable
             name="viewModel"
             type="dev.filipebezerra.android.popthriftstore.ui.welcome.WelcomeViewModel"
@@ -39,7 +45,7 @@
                 <ImageView
                     android:id="@+id/welcome_image"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="360dp"
                     android:contentDescription="@string/welcome_image_content_description"
                     app:srcCompat="@drawable/ic_best_offer"
                     />
