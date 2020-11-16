@@ -64,12 +64,53 @@ Through this project, developer will:
     <img src="./art/showcase/phone-portrait-showcase-01.png" heigth="640" width="326">
     <img src="./art/showcase/phone-portrait-showcase-02.png" heigth="640" width="326">
     <img src="./art/showcase/phone-portrait-showcase-03.png" heigth="640" width="326">
+</div>
+<div>
     <img src="./art/showcase/phone-portrait-showcase-04.png" heigth="640" width="326">
     <img src="./art/showcase/phone-portrait-showcase-05.png" heigth="640" width="326">
     <img src="./art/showcase/phone-portrait-showcase-06.png" heigth="640" width="326">
+</div>
+<div>
+    <img src="./art/showcase/phone-portrait-showcase-07.png" heigth="640" width="326">
+    <img src="./art/showcase/phone-portrait-showcase-08.png" heigth="640" width="326">
+    <img src="./art/showcase/phone-portrait-showcase-09.png" heigth="640" width="326">
+</div>
+<div>
+    <img src="./art/showcase/phone-portrait-showcase-10.png" heigth="640" width="326">
+    <img src="./art/showcase/phone-portrait-showcase-11.png" heigth="640" width="326">
+    <img src="./art/showcase/phone-portrait-showcase-12.png" heigth="640" width="326">
 </div>
 
 ## Live Running
 
 <a href="https://appetize.io/app/n2f2y2ztd7x0u7tn7cywha9h80?device=pixel4&scale=75&orientation=portrait&osVersion=10.0&deviceColor=black&autoplay=true" target="_blank"><img src="./art/live/Appetize-Pixel4.png" heigth="320" width="163"></a>
 
+## Project reviews
+
+- [Review #1](https://review.udacity.com/?utm_campaign=ret_000_auto_ndxxx_submission-reviewed&utm_source=blueshift&utm_medium=email&utm_content=reviewsapp-submission-reviewed&bsft_clkid=d9cad456-29f1-437d-b355-dea84a755244&bsft_uid=41fbbe1d-caad-4775-b74e-f4848e660feb&bsft_mid=2eb37692-56ae-486c-b10d-5adc758ae4ab&bsft_eid=6f154690-7543-4582-9be7-e397af208dbd&bsft_txnid=8e4b2198-8af7-4ef9-8a98-a189414547b9&bsft_mime_type=html&bsft_ek=2020-11-15T08%3A29%3A57Z&bsft_aaid=affd8710-61ff-4001-baca-1d4a7303381d&bsft_lx=2&bsft_tv=1#!/reviews/2588451)
+
+<img src="./art/review/review.png">
+
+### Code Review
+
+<div>
+    <img src="./art/review/code-review-01.png">
+</div>
+<div>
+    <img src="./art/review/code-review-02.png">
+</div>
+<div>
+    <img src="./art/review/code-review-03.png">
+</div>
+<div>
+    <img src="./art/review/code-review-04.png">
+</div>
+<div>
+    <img src="./art/review/code-review-05.png">
+</div>
+<div>
+    <img src="./art/review/code-review-06.png">
+</div>
+<div>
+    <img src="./art/review/code-review-07.png">
+</div>
